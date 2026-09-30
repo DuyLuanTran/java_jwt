@@ -10,7 +10,7 @@ Dự án hoàn thành theo bài giảng **JSON Web Token (WEBPR330479)** của *
 - **Spring Security**: 6.x
 - **Spring Data JPA & Hibernate**
 - **Database**: MySQL (hoặc H2 in-memory khi test)
-- **JSON Web Token (JJWT)**: `io.jsonwebtoken` version `0.12.6` (jjwt-api, jjwt-impl, jjwt-jackson)
+- **JSON Web Token**: **Nimbus JOSE + JWT** (`com.nimbusds:nimbus-jose-jwt` version `9.37.3`)
 - **Thymeleaf & Bootstrap 5 & jQuery 3.7.1**
 - **Lombok**
 
@@ -143,6 +143,6 @@ Thêm header:
 - `BadCredentialsException`: HTTP 401 Unauthorized ("The username or password is incorrect")
 - `AccountStatusException`: HTTP 403 Forbidden ("The account is locked")
 - `AccessDeniedException`: HTTP 403 Forbidden ("You are not authorized to access this resource")
-- `SignatureException`: HTTP 403 Forbidden ("The JWT signature is invalid")
-- `ExpiredJwtException`: HTTP 403 Forbidden ("The JWT token has expired")
+- `BadJOSEException / JOSEException / ParseException`: HTTP 401 Unauthorized ("The JWT signature is invalid")
+- `BadJWTException`: HTTP 401 Unauthorized ("The JWT token has expired")
 - Các lỗi khác: HTTP 500 Internal Server Error
